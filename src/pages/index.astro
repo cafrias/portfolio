@@ -3,13 +3,6 @@
 import Tour from '../components/Tour.astro';
 // You can import components from any supported Framework here!
 
-
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
-let title = 'My Astro Site';
-
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
@@ -17,21 +10,29 @@ let title = 'My Astro Site';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>{title}</title>
 
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
-    <link rel="stylesheet" href="/style/global.css">
-    <link rel="stylesheet" href="/style/home.css">
+    <!-- START: meta tags -->
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Carlos Frias — Front-end Engineer">
+    <meta name="description" content="I craft experiences with love, knowledge, and passion.">
 
-    <style>
-        header {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-            max-width: min(100%, 68ch);
-        }
-    </style>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cafrias.com">
+    <meta property="og:title" content="Carlos Frias — Front-end Engineer">
+    <meta property="og:description" content="I craft experiences with love, knowledge, and passion.">
+    <meta property="og:image" content="https://i.ibb.co/tPnrPyT/desktop-bf0eaa8b.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cafrias.com">
+    <meta property="twitter:title" content="Carlos Frias — Front-end Engineer">
+    <meta property="twitter:description" content="I craft experiences with love, knowledge, and passion.">
+    <meta property="twitter:image" content="https://i.ibb.co/tPnrPyT/desktop-bf0eaa8b.jpg">
+    <!-- END: meta tags -->
+
+    <title>Carlos Frias | Front-end Engineer</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 <body>
     <main>
