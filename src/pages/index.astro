@@ -56,3 +56,92 @@ let title = 'My Astro Site';
     </main>
 </body>
 </html>
+
+<style global lang="scss">
+@use '~styles/colors';
+@use '~styles/typography';
+@use '~styles/breakpoints';
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap');
+
+:root {
+    // 
+    // Vertical Spacing
+    // 
+    --v-spacing-2: 2.023rem;
+    --v-spacing-3: 2.945rem;
+    --v-spacing-4: 3.272rem;
+    --v-spacing-5: 4.765rem;
+    --v-spacing-6: 5.295rem;
+}
+
+html {
+    box-sizing: border-box;
+    max-width: 100vw;
+    background-color: #fff;
+}
+
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+body {
+    margin: 0;
+    color: colors.$black;
+    max-width: 2400px;
+    font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
+}
+
+// HEADINGS ____________________________________________________________________
+h1 {
+    font-size: 5.295rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.945rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    color: colors.$secondary;
+}
+
+// TEXT ELEMENTS _______________________________________________________________
+p, .text {
+    line-height: 1.5;
+    font-size: 1.125rem;
+    max-width: typography.$max-readable;
+}
+
+strong {
+    color: colors.$primary;
+}
+
+breakpoints.for-tablet-portrait-up {
+    h1 {
+        font-size: 7.71rem;
+    }
+  
+    h2 {
+        font-size: 4.765rem;
+    }
+}
+
+breakpoints.for-desktop-up {
+    h1 {
+        font-size: 8.567rem;
+    }
+  
+    h2 {
+        font-size: 5.295rem;
+    }
+}
+</style>
