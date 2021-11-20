@@ -1,6 +1,7 @@
 ---
 // Component Imports
-import Tour from '../components/Tour.astro';
+// import Tour from '../components/Tour.astro';
+import Home from '../components/Home.astro';
 // You can import components from any supported Framework here!
 
 // Full Astro Component Syntax:
@@ -36,32 +37,15 @@ import Tour from '../components/Tour.astro';
 </head>
 <body>
     <main>
-        <header>
-            <div>
-                <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-                <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-            </div>
-        </header>
-
-        <Tour />
-
-        <!--
-           - You can also use imported framework components directly in your markup!
-           -
-           - Note: by default, these components are NOT interactive on the client.
-           - The `:visible` directive tells Astro to make it interactive.
-           -
-           - See https://docs.astro.build/core-concepts/component-hydration/ 
-           -->
-
+        <Home />
     </main>
 </body>
 </html>
 
 <style global lang="scss">
-@use '~styles/colors';
-@use '~styles/typography';
-@use '~styles/breakpoints';
+@use '../styles/colors';
+@use '../styles/typography';
+@use '../styles/breakpoints';
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap');
 
