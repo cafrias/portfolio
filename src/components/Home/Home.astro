@@ -1,42 +1,66 @@
 ---
-
+import portraitImg from './assets/desktop.jpg';
 ---
 <section id="home" class="home-container">
-<div class="home-content home-content--pic">
-<h1 id="home__title" hidden>
-	Home
-</h1>
-<div class="presentation">
-	<div class="title-sub">
-		<p class="name">
-			I am {' '}
-			<span class="semi">Carlos Frias</span>
-		</p>
-        <p class="job-title">
-			front-end
-			<span class="job-sub">
-				engineer
-			</span>
-		</p>
-      </div>
+<div class="home-content">
+  <h1 id="title" hidden>
+    Home
+  </h1>
+  <div class="portrait-container">
+    <img class="portrait" src={portraitImg} alt="Carlos Frias Portrait" />
+  </div>
+  <div class="presentation">
+    <div class="title-sub">
+      <p class="name">
+        I am {' '}
+        <span class="semi">Carlos Frias</span>
+      </p>
+          <p class="job-title">
+        front-end
+        <span class="job-sub">
+          engineer
+        </span>
+      </p>
+        </div>
+  </div>
 </div>
 <div class="controls">
 	<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
 	<polyline fill="none" stroke="#C15454" stroke-width="3" points="0 .975 24.985 25.946 50 .946" transform="translate(15 27)" stroke-linecap="round" stroke-linejoin="round"/>
 	</svg>
 </div>
-</div>
 </section>
 
 <style lang="scss">
-@use '../styles/colors' as c;
-@use '../styles/breakpoints' as br;
+@use '../../styles/colors' as c;
+@use '../../styles/breakpoints' as br;
 
 $transparent-black: rgba(0, 0, 0, .75);
 
+.portrait-container {
+  width: 33%;
+  margin-right: 2rem;
+  // overflow: hidden;
+  background: c.$black;
+  // border: 10px solid white;
+  // border-radius: 5px;
+  transform: rotate(-15deg) scale(0.8);
+}
+
+.portrait {
+  // height: 100%;
+  width: 100%;
+  // clip-path: polygon(0 10%, 90% 0, 100% 90%, 10% 100%);
+  clip-path: polygon(5% 0, 0 95%, 95% 100%, 100% 5%);
+  transform: scale(1.2) rotate(15deg);
+  display: block;
+}
+
 .home-container {
-  border-top: 5.295rem $transparent-black solid;
+  padding-top: var(--v-spacing-6);
   background-color: #000;
+  background-image: url('./assets/bg.png');
+  background-repeat: repeat;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -61,13 +85,10 @@ $transparent-black: rgba(0, 0, 0, .75);
 }
 
 .home-content {
-  padding-top: 10%;
   width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 
 .curtain {
@@ -157,20 +178,12 @@ $transparent-black: rgba(0, 0, 0, .75);
     align-items: flex-end;
     width: 100%;
   }
-
-  .home-content {
-	  padding-top: 1.618rem;
-  }
 }
 
 // PHABLET FIX _________________________________________________________________
 @include br.for-tablet-portrait-only {
   .home-container {
     background-position: center;
-  }
-
-  .home-content {
-    padding-top: 20%;
   }
 
   // PRESENTATION
@@ -200,57 +213,9 @@ $transparent-black: rgba(0, 0, 0, .75);
     width: 5.295rem;
   }
 }
-// AT HOME APP STYLES __________________________________________________________
-.app--at-home {
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-image: url('./_assets/mobile@2x.jpg');
-  background-size: 450px 750px;
-  @include br.for-dppx(3) {
-    background-image: url('./_assets/mobile@3x.jpg');
-  }
-
-  @include br.for-phone-landscape {
-    background-image: url('./_assets/mobile-landscape@2x.jpg');
-    background-size: 750px 450px;
-    @include br.for-dppx(3) {
-      background-image: url('./_assets/mobile-landscape@3x.jpg');
-    }
-  }
-
-  @include br.for-tablet-portrait-up {
-    background-image: url('./_assets/tablet@2x.jpg');
-    background-size: 768px 1024px;
-    @include br.for-dppx(3) {
-      background-image: url('./_assets/tablet@3x.jpg');
-    }
-  }
-
-  @include br.for-desktop-up {
-    background-image: url('./_assets/desktop.jpg');
-    background-size: cover;
-    @include br.for-dppx(2) {
-      background-image: url('./_assets/desktop@2x.jpg');
-      background-size: 1440px 850px;
-    }
-  }
-
-  @include br.for-big-desktop-up {
-    background-image: url('./_assets/big-desktop.jpg');
-    background-size: cover;
-    @include br.for-dppx(2) {
-      background-image: url('./_assets/big-desktop@2x.jpg');
-      background-size: 1920px 1200px;
-    }
-  }
-}
 
 // TABLET BREAKPOINT -- LANDSCAPE ______________________________________________
 @include br.for-tablet-landscape-up {
-  .home-content {
-    padding-top: 5%;
-  }
-
   // PRESENTATION
   .presentation {
     padding-right: 3.272rem;
@@ -298,12 +263,6 @@ $transparent-black: rgba(0, 0, 0, .75);
 @include br.for-desktop-up {
   .home-container {
     border-top: 4.236rem transparent solid;
-  }
-
-  .home-content {
-    padding-top: 10%;
-    width: 90%;
-    align-items: flex-end;
   }
 
   .name {
