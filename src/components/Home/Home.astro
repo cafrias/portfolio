@@ -34,6 +34,12 @@ import arrow from "./assets/arrow.svg";
     background: c.$black;
     transform: rotate(-15deg) scale(0.8);
     margin-bottom: var(--v-spacing-3);
+
+    @include br.respond-to("xs-landscape") {
+      width: 33%;
+      margin-bottom: 0;
+      margin-right: 2rem;
+    }
   }
 
   .portrait {
@@ -62,12 +68,15 @@ import arrow from "./assets/arrow.svg";
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @include br.respond-to("xs-landscape") {
+      flex-direction: row;
+    }
   }
 
   // PRESENTATION ________________________________________________________________
   .presentation {
     line-height: 1;
-    width: 100%;
     padding: 0 1.125rem;
     color: c.$white;
     display: flex;
@@ -101,6 +110,7 @@ import arrow from "./assets/arrow.svg";
 
   .job-sub {
     font-size: 1.618rem;
+    max-width: 19rem;
     margin: 0;
     display: flex;
     align-items: center;
