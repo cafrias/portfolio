@@ -1,6 +1,24 @@
 ---
 import Home from "../components/Home/Home.astro";
 import Navbar from "../components/Navbar/Navbar.astro";
+
+import portraitImg from "../components/Home/assets/desktop.jpg";
+
+//
+// Asset preloading
+//
+interface PreloadedAsset {
+  href: string;
+  as: string;
+  media?: string;
+}
+
+const PRELOADED_ASSETS: PreloadedAsset[] = [
+  {
+    href: portraitImg,
+    as: "image",
+  },
+];
 ---
 
 <html lang="en">
@@ -32,9 +50,7 @@ import Navbar from "../components/Navbar/Navbar.astro";
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://cafrias.com" />
-    <meta
-      property="twitter:title"
-      content="Carlos Frias — Front-end Engineer"
+    <meta property="twitter:title" content="Carlos Frias — Front-end Engineer"
     />
     <meta
       property="twitter:description"
@@ -48,6 +64,10 @@ import Navbar from "../components/Navbar/Navbar.astro";
 
     <title>Carlos Frias | Front-end Engineer</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    {PRELOADED_ASSETS.map(({ href, as, media }) => {
+      return <link rel="preload" href={href} as={as} media={media} />;
+    })}
   </head>
   <body>
     <main>
