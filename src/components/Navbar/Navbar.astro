@@ -5,24 +5,34 @@ import logo from "./assets/logo.svg";
 ---
 
 <header role="banner">
-  <div class="logo-container">
-    <img src={logo} alt="logo" class="logo" />
-  </div>
+  <div class="container">
+    <div class="logo-container">
+      <img src={logo} alt="logo" class="logo" />
+    </div>
 
-  <button class="hamburger" aria-label="Toggle menu">
-    <img class="ham-img" src={hamIcon} alt="Hamburger icon" aria-hidden />
-  </button>
+    <button class="hamburger" aria-label="Toggle menu">
+      <img class="ham-img" src={hamIcon} alt="Hamburger icon" aria-hidden />
+    </button>
+  </div>
 
   <Nav />
 </header>
 
-<style>
+<style lang="scss">
+  @use "../../styles/spacing" as s;
+
   header {
     position: fixed;
+    width: 100%;
+  }
+
+  .container {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
+
+    @include s.cap-width;
   }
 
   .logo-container {
