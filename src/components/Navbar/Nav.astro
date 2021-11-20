@@ -1,0 +1,41 @@
+---
+const MENU_ITEMS = [
+  {
+    name: "home",
+    link: "#",
+  },
+  {
+    name: "about",
+    link: "#about",
+  },
+  {
+    name: "portfolio",
+    link: "#portfolio",
+  },
+  {
+    name: "contact",
+    link: "#contact",
+  },
+];
+---
+
+<nav>
+  <ul>
+    {MENU_ITEMS.map(({ link, name }, i) => (
+      <li key={i}>
+        <a href={link}>{name}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  nav {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+  }
+</style>

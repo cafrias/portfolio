@@ -1,334 +1,123 @@
 ---
-import portraitImg from './assets/desktop.jpg';
+import portraitImg from "./assets/desktop.jpg";
+import arrow from "./assets/arrow.svg";
 ---
+
 <section id="home" class="home-container">
-<div class="home-content">
-  <h1 id="title" hidden>
-    Home
-  </h1>
-  <div class="portrait-container">
-    <img class="portrait" src={portraitImg} alt="Carlos Frias Portrait" />
-  </div>
-  <div class="presentation">
-    <div class="title-sub">
+  <div class="home-content">
+    <h1 id="title" hidden>Home</h1>
+    <div class="portrait-container">
+      <img class="portrait" src={portraitImg} alt="Carlos Frias Portrait" />
+    </div>
+    <div class="presentation">
       <p class="name">
-        I am {' '}
+        I am {" "}
         <span class="semi">Carlos Frias</span>
       </p>
-          <p class="job-title">
-        front-end
-        <span class="job-sub">
-          engineer
-        </span>
-      </p>
-        </div>
+      <p class="job-title">front-end</p>
+      <p class="job-sub">engineer</p>
+    </div>
   </div>
-</div>
-<div class="controls">
-	<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-	<polyline fill="none" stroke="#C15454" stroke-width="3" points="0 .975 24.985 25.946 50 .946" transform="translate(15 27)" stroke-linecap="round" stroke-linejoin="round"/>
-	</svg>
-</div>
+  <div class="controls">
+    <img src={arrow} alt="Arrow icon" />
+  </div>
 </section>
 
 <style lang="scss">
-@use '../../styles/colors' as c;
-@use '../../styles/breakpoints' as br;
+  @use "../../styles/colors" as c;
+  @use "../../styles/breakpoints" as br;
 
-$transparent-black: rgba(0, 0, 0, .75);
+  $transparent-black: rgba(0, 0, 0, 0.75);
 
-.portrait-container {
-  width: 33%;
-  margin-right: 2rem;
-  // overflow: hidden;
-  background: c.$black;
-  // border: 10px solid white;
-  // border-radius: 5px;
-  transform: rotate(-15deg) scale(0.8);
-}
-
-.portrait {
-  // height: 100%;
-  width: 100%;
-  // clip-path: polygon(0 10%, 90% 0, 100% 90%, 10% 100%);
-  clip-path: polygon(5% 0, 0 95%, 95% 100%, 100% 5%);
-  transform: scale(1.2) rotate(15deg);
-  display: block;
-}
-
-.home-container {
-  padding-top: var(--v-spacing-6);
-  background-color: #000;
-  background-image: url('./assets/bg.png');
-  background-repeat: repeat;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.home-container::after {
-  display: block;
-  content: "";
-  position: fixed;
-  top: 120%;
-  z-index: 12;
-  width: 100vw;
-  height: 100vh;
-  transform: skewY(-10deg);
-  background-color: #fff;
-}
-
-.home-container--transition::after {
-  top: 0;
-  transform: skewY(0deg);
-  transition: 0.8s ease-out;
-}
-
-.home-content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.curtain {
-  width: 100%;
-  height: 100%;
-  background-color: $transparent-black;
-}
-
-// PRESENTATION ________________________________________________________________
-.presentation {
-  line-height: 1;
-  width: 100%;
-  padding: 0 1.125rem;
-}
-
-.name {
-  font-size: 1.82rem;
-  color: c.$primary;
-  margin: 0;
-  margin-bottom: 3.272rem;
-  align-self: flex-end;
-}
-
-.semi {
-  font-weight: bold;
-  color: c.$white;
-  text-transform: uppercase;
-}
-
-// TITLE WITH SUB ______________________________________________________________
-.title-sub {
-  color: c.$white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.title-sub:last-child {
-  margin-top: 3.272rem;
-}
-
-.job-title {
-  font-size: 3.272rem;
-  font-weight: 900;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  line-height: 1;
-  max-width: none !important;
-}
-
-.job-sub {
-  font-size: 1.618rem;
-}
-
-.job-sub::before {
-  content: '';
-  height: .5rem;
-  width: 8.567rem;
-  display: inline-block;
-  border-top: 1px c.$primary solid;
-  margin-right: 1rem;
-}
-
-.job-sub--shorter::before {
-  width: 1.618rem;
-}
-
-// CONTROLS ____________________________________________________________________
-.controls {
-  flex-grow: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-// LANDSCAPE BREAKPOINT -- MOBILE ______________________________________________
-@include br.for-phone-landscape {
-  .home-container {
-    border-top: 3.272rem rgba(0, 0, 0, .75) solid;
-    background-position: center;
+  .portrait-container {
+    width: 66%;
+    background: c.$black;
+    transform: rotate(-15deg) scale(0.8);
+    margin-bottom: var(--v-spacing-3);
   }
 
-  .presentation {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+  .portrait {
     width: 100%;
-  }
-}
-
-// PHABLET FIX _________________________________________________________________
-@include br.for-tablet-portrait-only {
-  .home-container {
-    background-position: center;
-  }
-
-  // PRESENTATION
-  .presentation {
-    padding-right: 3.272rem;
-    align-self: flex-end;
-  }
-
-  // TITLE WITH SUB
-  .name {
-    font-size: 1.618rem;
-  }
-
-  .job-title {
-    font-size: 5.295rem;
-  }
-
-  .job-sub {
-    font-size: 2.023rem;
-  }
-
-  .job-sub::before {
-    width: 17.942rem;
-  }
-
-  .job-sub--shorter::before {
-    width: 5.295rem;
-  }
-}
-
-// TABLET BREAKPOINT -- LANDSCAPE ______________________________________________
-@include br.for-tablet-landscape-up {
-  // PRESENTATION
-  .presentation {
-    padding-right: 3.272rem;
-    align-self: flex-end;
-  }
-
-  .curtain {
-    background-color: transparent;
+    clip-path: polygon(5% 0, 0 95%, 95% 100%, 100% 5%);
+    transform: scale(1.2) rotate(15deg);
+    display: block;
   }
 
   .home-container {
-    background-position: left bottom;
-    background-size: contain;
-  }
-
-  // TITLE WITH SUB
-  .name {
-    font-size: 2.023rem;
-  }
-
-  .job-title {
-    font-size: 5.295rem;
-  }
-
-  .job-sub {
-    font-size: 2.023rem;
-  }
-
-  .job-sub::before {
-    width: 17.942rem;
-  }
-
-  .job-sub--shorter::before {
-    width: 5.295rem;
-  }
-
-  // CONTROLS
-  .controls {
-    width: 50%;
-    align-items: center;
-  }
-}
-
-// DESKTOP BREAKPOINT __________________________________________________________
-@include br.for-desktop-up {
-  .home-container {
-    border-top: 4.236rem transparent solid;
-  }
-
-  .name {
-    align-self: flex-start;
-  }
-
-  .presentation {
-    padding: 0;
-    margin: 0;
-    width: 46%;
+    padding-top: var(--v-spacing-6);
+    background-color: #000;
+    background-image: url("./assets/bg.png");
+    background-repeat: repeat;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: space-between;
   }
 
-  .name {
-    font-size: 2.023rem;
-  }
-
-  // TITLE WITH SUB
-  .title-sub {
+  .home-content {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
-  .title-sub--half {
-    width: 75%;
-  }
-
-  .job-title {
-    font-size: 5.295rem;
-    align-self: flex-start;
-  }
-
-  .job-sub {
-    font-size: 2.618rem;
-  }
-
-  .job-sub--shorter::before {
-    width: 11.089rem;
-  }
-}
-
-// DESKTOP BIG BREAKPOINT ______________________________________________________
-@include br.for-big-desktop-up {
-  .job-title {
-    font-size: 6.854rem;
-  }
-
-  .job-sub {
-    font-size: 3.272rem;
+  // PRESENTATION ________________________________________________________________
+  .presentation {
+    line-height: 1;
+    width: 100%;
+    padding: 0 1.125rem;
+    color: c.$white;
+    display: flex;
+    flex-direction: column;
   }
 
   .name {
-    font-size: 2.618rem;
+    font-size: 1.82rem;
+    color: c.$primary;
+    margin: 0;
+    margin-bottom: 1.125rem;
+    line-height: 1;
+  }
+
+  .semi {
+    font-weight: bold;
+    color: c.$white;
+    text-transform: uppercase;
+  }
+
+  // TITLE WITH SUB ______________________________________________________________
+  .job-title {
+    font-size: 3.272rem;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    line-height: 1;
+    max-width: none !important;
+  }
+
+  .job-sub {
+    font-size: 1.618rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
   }
 
   .job-sub::before {
-    width: 22.428rem;
+    content: "";
+    flex-grow: 2;
+    display: block;
+    height: 1px;
+    background-color: c.$primary;
+    margin-right: 1rem;
   }
 
-  .title-sub--half {
-    margin-top: 2.618rem;
+  // CONTROLS ____________________________________________________________________
+  .controls {
+    display: flex;
+    justify-content: center;
   }
-
-  .job-sub--shorter::before {
-    width: 13.861rem;
-  }
-}
 </style>

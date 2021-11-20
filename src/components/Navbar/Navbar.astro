@@ -1,0 +1,48 @@
+---
+import Nav from "./Nav.astro";
+import hamIcon from "./assets/ham.svg";
+import logo from "./assets/logo.svg";
+---
+
+<header role="banner">
+  <div class="logo-container">
+    <img src={logo} alt="logo" class="logo" />
+  </div>
+
+  <button class="hamburger" aria-label="Toggle menu">
+    <img class="ham-img" src={hamIcon} alt="Hamburger icon" aria-hidden />
+  </button>
+
+  <Nav />
+</header>
+
+<style>
+  header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-container {
+    width: 4rem;
+    padding: 1rem 0 0 0.75rem;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  .hamburger {
+    background: none;
+    border: none;
+    padding-right: 0.25rem;
+    display: block;
+  }
+
+  .ham-img {
+    width: 100%;
+    display: block;
+  }
+</style>
