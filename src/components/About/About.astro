@@ -1,0 +1,270 @@
+---
+import headingImg from "./assets/heading.svg";
+import fishingImg from "./assets/fishing.svg";
+import pianoImg from "./assets/piano.svg";
+import pizzaImg from "./assets/pizza.svg";
+
+const interests = [
+  {
+    logo: fishingImg,
+    sub: "Outdoors",
+    h: "Fishing",
+    text: "Here in Rio Grande we take Fly Fishing seriously. When the season is off, I tie my own flies and also go surf fishing on the beach",
+  },
+  {
+    logo: pianoImg,
+    sub: "Arts",
+    h: "Piano",
+    text: "I’ve playing piano for several years, it used to be more than a hobby in the past. Nowadays it’s there for eventual diminished scale smashing.",
+  },
+  {
+    logo: pizzaImg,
+    sub: "Food",
+    h: "Pizza",
+    text: "Ah! Pizza!",
+  },
+];
+---
+
+<section class="page-template transition-animation ">
+  <header class="section-header">
+    <h1 class="section__heading" aria-label="About">
+      <img src={headingImg} alt="About" aria-hidden />
+    </h1>
+  </header>
+  <div class="template-container">
+    <article class="bio-article">
+      <h2 class="article-heading">bio</h2>
+      <p>
+        Straight from the south of Argentina, Rio Grande, I grew up to become a
+        <strong>COMPUTER GEEK</strong>
+        (proudly). Since I was a little boy, I’ve been around computers and other
+        small devices, like watches, as well.
+      </p>
+      <p>
+        Eventually I started my college days as Musical Arts Student, and fall
+        in love with Classical Music and Jazz. I played in a Jazz Quartet while
+        living in Tucuman, Argentina, until I later discovered that I didn't
+        want to live off the music.
+      </p>
+      <p>
+        After a couple of years of experimenting, I went back to my roots and
+        started studying
+        <strong>Computer Programming</strong>, and finally found my vocation.
+      </p>
+      <p>
+        In the present day, I like to focus all my time to
+        <strong>delivering Great Experiences</strong>, that doesn’t only cover
+        the mandatory guidelines, but also give an extra value to users,
+        clients, designers and developers, through innovation and good
+        practices.
+      </p>
+      <p>
+        Curious by nature, I keep constantly learning and practicing new skills
+        and technologies.
+      </p>
+    </article>
+    <article class="article-line ">
+      <h2 class="article-heading">Interests</h2>
+      <div class="line__line" aria-hidden="true"></div>
+      <div class="line__entries">
+        {interests.map((i, idx) => {
+          return (
+            <div
+              class={`line__entry ${idx % 2 === 1 ? "line__entry--odd" : ""}`}
+            >
+              <div class="entry__container">
+                <img src={i.logo} alt={i.h} class="entry__logo" />
+                <div class="entry__content entry__content--mono">
+                  <p class="entry__sub">{i.sub}</p>
+                  <h3 class="entry__h">{i.h}</h3>
+                  <p class="entry__text">{i.text}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </article>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/breakpoints" as br;
+
+  section {
+    padding-top: var(--v-spacing-6);
+  }
+
+  h1 {
+    height: auto;
+    margin: 0 auto 2.945rem auto;
+    width: 90%;
+
+    & > img {
+      height: 100%;
+    }
+
+    @include br.respond-to("small") {
+      height: 7.71rem;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 2.023rem;
+    width: 100%;
+
+    &:before {
+      display: block;
+      content: "";
+      margin: 0 auto 1.125rem;
+      width: 0.5rem;
+      height: 5.125rem;
+      border-left: 1px solid #bfbfbf;
+    }
+
+    @include br.respond-to("small") {
+      font-size: 4.765rem;
+    }
+  }
+
+  .bio-article {
+    margin-bottom: 2.023rem;
+  }
+
+  .template-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .article-line {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  .line__line {
+    display: none;
+
+    @include br.respond-to("small") {
+      display: block;
+      width: 1px;
+      background-color: #bfbfbf;
+      position: relative;
+      left: calc((100% - 8px) / 2);
+    }
+  }
+
+  .line__entries {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2.023rem 1.82rem 0;
+
+    @include br.respond-to("small") {
+      position: relative;
+      right: -12rem;
+      align-items: flex-end;
+      width: 99%;
+      padding: 0;
+      padding-top: 2.023rem;
+    }
+  }
+
+  .line__entry {
+    width: 100%;
+    margin-bottom: 2.945rem;
+
+    @include br.respond-to("small") {
+      width: 50%;
+      position: relative;
+      left: -25rem;
+      max-width: none;
+
+      &--odd {
+        position: static;
+        align-self: flex-start;
+
+        .entry__container {
+          justify-content: flex-end;
+        }
+        .entry__logo {
+          order: 1;
+        }
+
+        .entry__content {
+          text-align: right;
+          order: 0;
+          margin-left: 0;
+          margin-right: 7.71rem;
+        }
+      }
+    }
+  }
+
+  .entry__container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @include br.respond-to("small") {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  }
+
+  .entry__logo {
+    width: 30%;
+
+    @include br.respond-to("small") {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .entry__content {
+    padding: 0.75rem 0;
+    width: 100%;
+    text-align: center;
+
+    @include br.respond-to("small") {
+      text-align: left;
+      margin-left: 7.71rem;
+      width: auto;
+    }
+  }
+
+  .entry__sub {
+    margin: 0;
+    color: #662d36;
+    font-size: 1.25rem;
+  }
+
+  .entry__h {
+    margin: 0;
+    color: #c15454;
+    font-size: 1.82rem;
+  }
+
+  .entry__text {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  .entry__content--mono {
+    & > .entry__sub {
+      color: #bfbfbf;
+    }
+
+    & > .entry__h {
+      color: #515151;
+    }
+  }
+</style>

@@ -1,6 +1,9 @@
 ---
-import Home from "../components/Home/Home.astro";
 import Navbar from "../components/Navbar/Navbar.astro";
+
+// Pages
+import Home from "../components/Home/Home.astro";
+import About from "../components/About/About.astro";
 
 import portraitImg from "../components/Home/assets/desktop.jpg";
 
@@ -73,6 +76,7 @@ const PRELOADED_ASSETS: PreloadedAsset[] = [
     <main>
       <Navbar />
       <Home />
+      <About />
     </main>
   </body>
 </html>
