@@ -1,0 +1,48 @@
+---
+export interface Props {
+  headingImg: string;
+  name: string;
+}
+const { name, headingImg } = Astro.props;
+---
+
+<section class="page-template">
+  <header class="section-header">
+    <h1 class="section__heading" aria-label={name}>
+      <img src={headingImg} alt={name} aria-hidden />
+    </h1>
+  </header>
+  <div class="template-container">
+    <slot />
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints" as br;
+
+  section {
+    padding-top: var(--v-spacing-6);
+  }
+
+  h1 {
+    height: auto;
+    margin: 0 auto 2.945rem auto;
+    width: 90%;
+
+    & > img {
+      height: 100%;
+    }
+
+    @include br.respond-to("small") {
+      height: 7.71rem;
+    }
+  }
+
+  .template-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+  }
+</style>

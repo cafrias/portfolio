@@ -1,0 +1,35 @@
+---
+export interface ArticleProps {
+  name: string;
+}
+
+const { name } = Astro.props as ArticleProps;
+---
+
+<article>
+  <h2>{name}</h2>
+  <slot />
+</article>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints" as br;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 2.023rem;
+    width: 100%;
+
+    &:before {
+      display: block;
+      content: "";
+      margin: 0 auto 1.125rem;
+      width: 0.5rem;
+      height: 5.125rem;
+      border-left: 1px solid #bfbfbf;
+    }
+
+    @include br.respond-to("small") {
+      font-size: 4.765rem;
+    }
+  }
+</style>

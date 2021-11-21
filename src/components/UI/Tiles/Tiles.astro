@@ -1,0 +1,167 @@
+---
+export interface TileItem {
+  logoSrc: string;
+  title: string;
+  subtitle: string;
+  text: string;
+}
+
+export interface TilesProps {
+  items: TileItem[];
+}
+
+const { items } = Astro.props as TilesProps;
+---
+
+<div class="container">
+  <div class="line" aria-hidden="true"></div>
+  <div class="tiles">
+    {items.map((i, idx) => {
+      return (
+        <div
+          class={`tile-container ${idx % 2 === 1 ? "tile-container--odd" : ""}`}
+        >
+          <div class="tile">
+            <img src={i.logoSrc} alt={i.title} class="entry__logo" />
+            <div class="tile__content tile__content--mono">
+              <p class="tile__sub">{i.subtitle}</p>
+              <h3 class="tile__title">{i.title}</h3>
+              <p class="tile__text">{i.text}</p>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints" as br;
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  .line {
+    display: none;
+
+    @include br.respond-to("small") {
+      display: block;
+      width: 1px;
+      background-color: #bfbfbf;
+      position: relative;
+      left: calc((100% - 8px) / 2);
+    }
+  }
+
+  .tiles {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2.023rem 1.82rem 0;
+
+    @include br.respond-to("small") {
+      position: relative;
+      right: -12rem;
+      align-items: flex-end;
+      width: 99%;
+      padding: 0;
+      padding-top: 2.023rem;
+    }
+  }
+
+  .tile-container {
+    width: 100%;
+    margin-bottom: 2.945rem;
+
+    @include br.respond-to("small") {
+      width: 50%;
+      position: relative;
+      left: -25rem;
+      max-width: none;
+
+      &--odd {
+        position: static;
+        align-self: flex-start;
+
+        .tile {
+          justify-content: flex-end;
+        }
+        .entry__logo {
+          order: 1;
+        }
+
+        .tile__content {
+          text-align: right;
+          order: 0;
+          margin-left: 0;
+          margin-right: 7.71rem;
+        }
+      }
+    }
+  }
+
+  .tile {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @include br.respond-to("small") {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  }
+
+  .entry__logo {
+    width: 30%;
+
+    @include br.respond-to("small") {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .tile__content {
+    padding: 0.75rem 0;
+    width: 100%;
+    text-align: center;
+
+    @include br.respond-to("small") {
+      text-align: left;
+      margin-left: 7.71rem;
+      width: auto;
+    }
+  }
+
+  .tile__sub {
+    margin: 0;
+    color: #662d36;
+    font-size: 1.25rem;
+  }
+
+  .tile__title {
+    margin: 0;
+    color: #c15454;
+    font-size: 1.82rem;
+  }
+
+  .tile__text {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  .tile__content--mono {
+    & > .tile__sub {
+      color: #bfbfbf;
+    }
+
+    & > .tile__title {
+      color: #515151;
+    }
+  }
+</style>
