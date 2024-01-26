@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import type { Project } from "src/models/Project";
+import NewProjectBadge from "./badge/NewProjectBadge.astro";
+import UpcomingProjectBadge from "./badge/UpcomingProjectBadge.astro";
+
+interface Props extends Project {}
+
+const { status, description, repoUrl, techStack, thumbnail, title } =
+  Astro.props;
+
+let BadgeElement: typeof NewProjectBadge | undefined;
+switch (status) {
+  case "new":
+    BadgeElement = NewProjectBadge;
+    break;
+
+  case "upcoming":
+    BadgeElement = UpcomingProjectBadge;
+    break;
+
+  default:
+    break;
+}
+---
+
+<div
+  class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%] border border-base-300"
+>
+  <a href={repoUrl} target="_blank">
+    <div class="hero-content flex-col md:flex-row">
+      <Image
+        src={thumbnail}
+        width={750}
+        height={422}
+        alt={title}
+        class="max-w-full md:max-w-[13rem] rounded-lg"
+      />
+      <div class="grow w-full">
+        <h1 class="text-xl font-bold">
+          {title}
+          {BadgeElement && <BadgeElement />}
+        </h1>
+        <p class="py-1 text-1xl">{description}</p>
+      </div>
+    </div>
+  </a>
+</div>

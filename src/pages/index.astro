@@ -12,6 +12,7 @@ import sassIcon from "../assets/sass-icon.svg";
 import astroIcon from "../assets/astro-icon.svg";
 
 import { projects } from "../data/projects";
+import ProjectCard from "@components/ProjectCard.astro";
 
 const TECH_STACK = [
   {
@@ -102,21 +103,13 @@ const TECH_STACK = [
     <div class="pl-4 pt-1 pb-1 mb-8 border-l border-base-300">
       <ul class="flex flex-col gap-4 ml-4">
         {
-          projects.map(
-            ({ title, thumbnail, description, repoUrl, techStack }) => {
-              return (
-                <li>
-                  <HorizontalCard
-                    title={title}
-                    img={thumbnail}
-                    desc={description}
-                    url={repoUrl}
-                    badge="NEW"
-                  />
-                </li>
-              );
-            }
-          )
+          projects.map((project) => {
+            return (
+              <li>
+                <ProjectCard {...project} />
+              </li>
+            );
+          })
         }
       </ul>
     </div>
@@ -133,7 +126,7 @@ const TECH_STACK = [
       display: block;
       height: 1px;
       width: 4rem;
-      background: oklch(var(--a));
+      background: oklch(var(--s));
     }
   }
 </style>

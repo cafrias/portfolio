@@ -6,4 +6,5 @@ export interface Project {
   description: string;
   repoUrl: string;
   techStack: Set<Techs>;
+  status?: "new" | "upcoming";
 }
