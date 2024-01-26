@@ -11,6 +11,8 @@ import nextjsIcon from "../assets/nextjs-icon.svg";
 import sassIcon from "../assets/sass-icon.svg";
 import astroIcon from "../assets/astro-icon.svg";
 
+import { projects } from "../data/projects";
+
 const TECH_STACK = [
   {
     title: "Typescript",
@@ -92,11 +94,17 @@ const TECH_STACK = [
     <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
   </div>
 
-  <HorizontalCard
-    title="Personal Portfolio"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
-  />
+  {
+    projects.map(({ title, thumbnail, description, repoUrl, techStack }) => {
+      return (
+        <HorizontalCard
+          title={title}
+          img={thumbnail}
+          desc={description}
+          url={repoUrl}
+          badge="NEW"
+        />
+      );
+    })
+  }
 </BaseLayout>
