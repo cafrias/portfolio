@@ -1,7 +1,9 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = 'Astrofy | Personal Portfolio Website Template';
-export const SITE_DESCRIPTION = 'Astrofy is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed.';
-export const GENERATE_SLUG_FROM_TITLE = true
-export const TRANSITION_API = true
+export const SITE_TITLE = "Carlos Frias | Portfolio";
+export const SITE_DESCRIPTION =
+  "In this site I post all my projects and contact info.";
+export const GENERATE_SLUG_FROM_TITLE = true;
+export const TRANSITION_API = true;
+export const GTM_MEASUREMENT_ID = import.meta.env.GTM_MEASUREMENT_ID;
