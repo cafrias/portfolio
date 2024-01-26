@@ -1,4 +1,6 @@
-export interface Project<A = string> {
+import type { Tech } from "./Tech";
+
+export interface Project {
   title: string;
   thumbnail: ImageMetadata;
   description: string;
@@ -6,6 +8,6 @@ export interface Project<A = string> {
   /**
    * A set of Tech IDs
    */
-  techStack: Set<A>;
+  techStack: Array<Tech>;
   status?: "new" | "upcoming";
 }

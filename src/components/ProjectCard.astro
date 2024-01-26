@@ -42,6 +42,26 @@ switch (status) {
           {BadgeElement && <BadgeElement />}
         </h1>
         <p class="py-1 text-1xl">{description}</p>
+        {
+          techStack.length > 0 && (
+            <ul class="flex flex-wrap gap-2 items-center">
+              Techs:
+              {techStack.map((tech) => {
+                return (
+                  <li>
+                    <Image
+                      width={20}
+                      height={20}
+                      src={tech.icon}
+                      alt={tech.name}
+                      title={tech.name}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          )
+        }
       </div>
     </div>
   </a>

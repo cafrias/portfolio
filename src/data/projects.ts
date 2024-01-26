@@ -2,15 +2,15 @@ import type { Project } from "src/models/Project";
 
 import portfolioThumbnail from "./assets/portfolio-thumbnail.png";
 import placeholderThumbnail from "./assets/placeholder-img.jpg";
-import type { AvailableTechs, Techs } from "./techs";
+import { Techs } from "./techs";
 
-export const projects: Project<AvailableTechs>[] = [
+export const projects: Project[] = [
   {
     title: "Personal Portfolio",
     thumbnail: portfolioThumbnail,
     description: "My Personal Portfolio where I upload my new projects",
     repoUrl: "https://github.com/cafrias/portfolio",
-    techStack: new Set(["ASTRO", "TAILWIND"]),
+    techStack: [Techs.ASTRO, Techs.TAILWIND],
     status: "new",
   },
   {
@@ -19,7 +19,7 @@ export const projects: Project<AvailableTechs>[] = [
     description:
       "A market place where you can find the cheapest prices in town",
     repoUrl: "https://github.com/cafrias",
-    techStack: new Set(["ASTRO", "JAMSTACK", "STRAPI", "TAILWIND"]),
+    techStack: [Techs.ASTRO, Techs.JAMSTACK, Techs.STRAPI, Techs.TAILWIND],
     status: "upcoming",
   },
 ];
