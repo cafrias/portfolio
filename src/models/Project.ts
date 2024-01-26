@@ -1,10 +1,11 @@
-import type { Techs } from "./Techs";
-
-export interface Project {
+export interface Project<A = string> {
   title: string;
   thumbnail: ImageMetadata;
   description: string;
   repoUrl: string;
-  techStack: Set<Techs>;
+  /**
+   * A set of Tech IDs
+   */
+  techStack: Set<A>;
   status?: "new" | "upcoming";
 }
