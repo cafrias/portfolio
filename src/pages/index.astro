@@ -51,12 +51,16 @@ const TECH_STACK = [
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
+  <div class="pb-12 md:mt-5">
     <h1 class="text-5xl font-bold">
       I'm <span class="text-primary">Carlos Frias</span>
     </h1>
-    <p class="mb-2 text-3xl py-3 font-bold">Front-end Software Engineer</p>
-    <div class="mb-6">
+    <div class="flex gap-2 items-center mb-4">
+      <div class="line"></div><p class="text-3xl">
+        Front-end Software Engineer
+      </p>
+    </div>
+    <div class="pl-4 pt-1 pb-1 mb-8 border-l border-base-300">
       <p class="text-lg">
         I'm a passionate Software Engineer from Argentina with <strong
           class="text-accent">5+ years of experience</strong
@@ -67,7 +71,9 @@ const TECH_STACK = [
       </p>
     </div>
     <h2 class="text-3xl mb-4">Tech Stack</h2>
-    <ul class="mb-12 flex flex-wrap gap-4 mx-4 p-4 rounded bg-base-200">
+    <div
+      class="pl-4 pt-1 pb-1 mb-8 border-l border-base-300 flex flex-wrap gap-4"
+    >
       {
         TECH_STACK.map(({ icon, title, bg = "transparent" }) => {
           return (
@@ -82,7 +88,7 @@ const TECH_STACK = [
           );
         })
       }
-    </ul>
+    </div>
     <div>
       <a class="btn" href="mailto:carlos.a.frias@gmail.com" target="_blank">
         Let's connect!</a
@@ -90,21 +96,44 @@ const TECH_STACK = [
     </div>
   </div>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
-  </div>
+  <section>
+    <h2 class="text-3xl w-full font-bold mb-4">My last projects {"</>"}</h2>
 
-  {
-    projects.map(({ title, thumbnail, description, repoUrl, techStack }) => {
-      return (
-        <HorizontalCard
-          title={title}
-          img={thumbnail}
-          desc={description}
-          url={repoUrl}
-          badge="NEW"
-        />
-      );
-    })
-  }
+    <div class="pl-4 pt-1 pb-1 mb-8 border-l border-base-300">
+      <ul class="flex flex-col gap-4 ml-4">
+        {
+          projects.map(
+            ({ title, thumbnail, description, repoUrl, techStack }) => {
+              return (
+                <li>
+                  <HorizontalCard
+                    title={title}
+                    img={thumbnail}
+                    desc={description}
+                    url={repoUrl}
+                    badge="NEW"
+                  />
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .line {
+    display: none;
+  }
+
+  @media screen(md) {
+    .line {
+      display: block;
+      height: 1px;
+      width: 4rem;
+      background: oklch(var(--a));
+    }
+  }
+</style>
