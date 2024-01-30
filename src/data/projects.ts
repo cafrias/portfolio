@@ -14,12 +14,18 @@ export const projects: Project[] = [
     status: "new",
   },
   {
-    title: "Marketplace",
+    title: "Marco Polo",
     thumbnail: placeholderThumbnail,
     description:
       "A market place where you can find the cheapest prices in town",
-    repoUrl: "https://github.com/cafrias",
-    techStack: [Techs.ASTRO, Techs.JAMSTACK, Techs.STRAPI, Techs.TAILWIND],
+    repoUrl: "https://github.com/cafrias/marco-polo",
+    techStack: [
+      Techs.ASTRO,
+      Techs.REACT,
+      Techs.JAMSTACK,
+      Techs.STRAPI,
+      Techs.TAILWIND,
+    ],
     status: "upcoming",
   },
 ];
