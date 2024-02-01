@@ -3,6 +3,8 @@ import dockerIcon from "./assets/docker-icon.svg";
 import jamIcon from "./assets/jam-icon.svg";
 import nextjsIcon from "./assets/nextjs-icon.svg";
 import pwaIcon from "./assets/pwa-icon.svg";
+import payloadIcon from "./assets/payload-logo.svg";
+import mongoIcon from "./assets/mongdb-logo.svg";
 import reactIcon from "./assets/react-icon.svg";
 import sassIcon from "./assets/sass-icon.svg";
 import tailwindIcon from "./assets/tailwind-icon.svg";
@@ -15,9 +17,11 @@ export type AvailableTechs =
   | "ASTRO"
   | "DOCKER"
   | "JAMSTACK"
+  | "MONGO"
   | "NODE"
   | "NEXTJS"
   | "PWA"
+  | "PAYLOAD"
   | "REACT"
   | "SASS"
   | "TAILWIND"
@@ -28,8 +32,10 @@ export const Techs: Record<AvailableTechs, Tech> = {
   ASTRO: { name: "Astro", icon: astroIcon },
   DOCKER: { name: "Docker", icon: dockerIcon },
   JAMSTACK: { name: "JamStack", icon: jamIcon },
+  MONGO: { name: "MongoDB", icon: mongoIcon },
   NODE: { name: "NodeJS", icon: nodeIcon },
   NEXTJS: { name: "NextJS", icon: nextjsIcon },
+  PAYLOAD: { name: "Payload CMS", icon: payloadIcon },
   PWA: { name: "Progressive Web Application", icon: pwaIcon },
   REACT: { name: "React", icon: reactIcon },
   SASS: { name: "Sass", icon: sassIcon },
