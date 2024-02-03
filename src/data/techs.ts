@@ -4,6 +4,7 @@ import jamIcon from "./assets/jam-icon.svg";
 import nextjsIcon from "./assets/nextjs-icon.svg";
 import pwaIcon from "./assets/pwa-icon.svg";
 import payloadIcon from "./assets/payload-logo.svg";
+import meiliIcon from "./assets/meili-icon.svg";
 import mongoIcon from "./assets/mongdb-logo.svg";
 import reactIcon from "./assets/react-icon.svg";
 import sassIcon from "./assets/sass-icon.svg";
@@ -17,6 +18,7 @@ export type AvailableTechs =
   | "ASTRO"
   | "DOCKER"
   | "JAMSTACK"
+  | "MEILI"
   | "MONGO"
   | "NODE"
   | "NEXTJS"
@@ -32,6 +34,7 @@ export const Techs: Record<AvailableTechs, Tech> = {
   ASTRO: { name: "Astro", icon: astroIcon },
   DOCKER: { name: "Docker", icon: dockerIcon },
   JAMSTACK: { name: "JamStack", icon: jamIcon },
+  MEILI: { name: "Meilisearch", icon: meiliIcon },
   MONGO: { name: "MongoDB", icon: mongoIcon },
   NODE: { name: "NodeJS", icon: nodeIcon },
   NEXTJS: { name: "NextJS", icon: nextjsIcon },

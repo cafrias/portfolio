@@ -1,23 +1,15 @@
 import type { Project } from "src/models/Project";
 
 import portfolioThumbnail from "./assets/portfolio-thumbnail.png";
-import placeholderThumbnail from "./assets/placeholder-img.jpg";
+import marcoThumb from "./assets/marco-polo.png";
 import { Techs } from "./techs";
 
 export const projects: Project[] = [
   {
-    title: "Personal Portfolio",
-    thumbnail: portfolioThumbnail,
-    description: "My Personal Portfolio where I upload my new projects",
-    repoUrl: "https://github.com/cafrias/portfolio",
-    techStack: [Techs.ASTRO, Techs.TAILWIND],
-    status: "new",
-  },
-  {
     title: "Marco Polo",
-    thumbnail: placeholderThumbnail,
+    thumbnail: marcoThumb,
     description:
-      "A market place where you can find the cheapest prices in town",
+      "A DEMO market place app where you can find the cheapest prices in town",
     repoUrl: "https://github.com/cafrias/marco-polo",
     techStack: [
       Techs.NEXTJS,
@@ -28,7 +20,15 @@ export const projects: Project[] = [
       Techs.JAMSTACK,
       Techs.MONGO,
       Techs.TAILWIND,
+      Techs.MEILI,
     ],
-    status: "upcoming",
+    status: "new",
+  },
+  {
+    title: "Personal Portfolio",
+    thumbnail: portfolioThumbnail,
+    description: "My Personal Portfolio where I upload my new projects",
+    repoUrl: "https://github.com/cafrias/portfolio",
+    techStack: [Techs.ASTRO, Techs.TAILWIND],
   },
 ];
