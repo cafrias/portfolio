@@ -2,9 +2,18 @@ import type { Project } from "src/models/Project";
 
 import portfolioThumbnail from "./assets/portfolio-thumbnail.png";
 import marcoThumb from "./assets/marco-polo.png";
+import coffeeThumb from "./assets/coffee-maker.png";
 import { Techs } from "./techs";
 
 export const projects: Project[] = [
+  {
+    title: "Coffee Maker",
+    thumbnail: coffeeThumb,
+    description: "A DEMO 3D project where you can make a coffee for you",
+    repoUrl: "https://github.com/cafrias/coffee-maker",
+    techStack: [Techs.TYPESCRIPT, Techs.BABYLON],
+    status: "upcoming",
+  },
   {
     title: "Marco Polo",
     thumbnail: marcoThumb,

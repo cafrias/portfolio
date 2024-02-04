@@ -1,4 +1,5 @@
 import astroIcon from "./assets/astro-icon.svg";
+import babylonIcon from "./assets/babylon.svg";
 import dockerIcon from "./assets/docker-icon.svg";
 import jamIcon from "./assets/jam-icon.svg";
 import nextjsIcon from "./assets/nextjs-icon.svg";
@@ -16,6 +17,7 @@ import type { Tech } from "src/models/Tech";
 
 export type AvailableTechs =
   | "ASTRO"
+  | "BABYLON"
   | "DOCKER"
   | "JAMSTACK"
   | "MEILI"
@@ -32,6 +34,7 @@ export type AvailableTechs =
 
 export const Techs: Record<AvailableTechs, Tech> = {
   ASTRO: { name: "Astro", icon: astroIcon },
+  BABYLON: { name: "Babylon", icon: babylonIcon },
   DOCKER: { name: "Docker", icon: dockerIcon },
   JAMSTACK: { name: "JamStack", icon: jamIcon },
   MEILI: { name: "Meilisearch", icon: meiliIcon },
